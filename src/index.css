@@ -20,6 +20,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+span {
+  display: inline-block;
+}
+
 img,
 /* picture, */
 /* video,

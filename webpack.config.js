@@ -95,9 +95,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     // filename: `bundle.js`,
-    filename: 'bundle.js',
+    filename: 'index.js',
     // assetModuleFilename: 'public/[hash][ext][query]',
-    publicPath: './',
+    publicPath: isDev ? '/' : './',
   },
   externals: {
     React: 'react',
@@ -139,26 +139,26 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              useRelativePath: false,
-              publicPath: './',
-            },
-          },
-        ],
-      },
       // {
-      //   test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
-      //   type: 'asset/resource',
-      //   generator: {
-      //     filename: '[name][ext]',
-      //   },
+      //   test: /\.(jpe?g|png|gif|svg)$/i,
+      //   use: [
+      //     {
+      //       loader: 'file-loader',
+      //       // options: {
+      //       //   name: '[name].[ext]',
+      //       //   // useRelativePath: true,
+      //       //   publicPath: './',
+      //       // },
+      //     },
+      //   ],
       // },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: '[name][ext]',
+        },
+      },
       // {
       //   test: /\.(ttf|otf)$/,
       //   use: [

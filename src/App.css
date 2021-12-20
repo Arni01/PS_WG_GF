@@ -12,43 +12,33 @@ body {
 .wrapper {
   max-width: 1920px;
   margin: 0 auto;
-  /* background-image: url(../public/dist/bgimage.png); */
-  background-image: url(../dist//bgimage.png);
+  background-image: url(./public/img/bgimage.png);
+  /* background-image: url(./bgimage.png); */
   background-position: top;
   background-size: 100%;
   background-repeat: no-repeat;
-}
-@media (min-width: 740px) {
-  .wrapper {
-    min-height: 740px;
-  }
-}
-@media (max-width: 740px) {
-  .wrapper {
-    background-image: none;
-  }
 }
 
 .header {
   background-color: #000000;
   height: 60px;
-}
-@media (max-width: 740px) {
-  .header {
-    height: 40px;
-  }
+  position: relative;
 }
 
 .header_content {
-  position: relative;
-  margin: 0 auto;
+  position: absolute;
+  /* margin: 0 auto; */
   padding: 0 15px;
   max-width: 1200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  top: 50%;
-  transform: translate(0, -50%);
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.header_content a {
+  flex-shrink: 0;
 }
 
 h1 {
@@ -63,10 +53,14 @@ h1 {
     font-size: 12px;
   }
 }
-h1:before {
-  display: flex;
-  align-items: center;
-  content: url(./public/img/logo.png);
+.logo {
+  /* display: flex; */
+  /* align-items: center; */
+  display: inline-block !important;
+  background: url(./public/img/logo.png) center no-repeat;
+  background-size: 100%;
+  width: 23px;
+  height: 23px;
   margin-right: 10px;
 }
 
@@ -273,36 +267,52 @@ h1:before {
   background-image: url(./public/img/heartFull.png);
 }
 
-.grid {
+/* .grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  /* grid-template-rows: repeat(3, 300px); */
   grid-gap: 1px;
   grid-auto-flow: row dense;
   max-width: 1200px;
   margin: 0 auto;
+} */
+
+.grid {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
 }
-@media (max-width: 1140px) {
+
+/* @media (max-width: 1140px) {
   .grid {
     grid-template-columns: 1fr 1fr 1fr;
-    /* grid-template-rows: repeat(auto, 300px); */
   }
-}
-@media (max-width: 740px) {
+} */
+/* @media (max-width: 740px) {
   .grid {
     grid-template-columns: 1fr 1fr;
   }
-}
+} */
 
 .item {
   position: relative;
   background-color: rgba(0, 0, 0, 0.22);
   height: 300px;
+  width: 299px;
+  margin-left: 1px;
+  flex-shrink: 0;
   /* padding-bottom: 100%; */
 }
 
+.item:first-child {
+  margin-left: 0;
+}
+
 .item:nth-of-type(5n) {
-  grid-column: span 2;
+  /* grid-column: span 2; */
+  width: 599px;
 }
 
 @media (hover: hover) {

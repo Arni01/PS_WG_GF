@@ -7,6 +7,7 @@ const Header = ({ wishlist, card }) => {
     <div className="header">
       <div className="header_content">
         <Link to="/">
+          <span className="logo"></span>
           <h1>PREMIUM SHOP</h1>
         </Link>
 
