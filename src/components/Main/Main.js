@@ -8,19 +8,17 @@ const Main = ({
   addCardItem,
 }) => {
   return (
-    <main>
-      <div className="grid">
-        {productList.map((product) => (
-          <ProductItem
-            product={product}
-            key={product.id}
-            addWishlistItem={addWishlistItem}
-            deleteWishlistItem={deleteWishlistItem}
-            addCardItem={addCardItem}
-          />
-        ))}
-      </div>
-    </main>
+    <div className="grid">
+      {productList.map((product) => (
+        <ProductItem
+          product={product}
+          key={product.id}
+          addWishlistItem={addWishlistItem}
+          deleteWishlistItem={deleteWishlistItem}
+          addCardItem={addCardItem}
+        />
+      ))}
+    </div>
   )
 }
 

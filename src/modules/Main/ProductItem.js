@@ -9,7 +9,7 @@ const ProductItem = ({
   const handleTogleCheckBox = ({ target }) => {
     target.checked ? addWishlistItem() : deleteWishlistItem()
   }
-
+  console.log(img)
   return (
     <div className="item">
       <input
@@ -20,7 +20,7 @@ const ProductItem = ({
       />
       <label className="checkbox_label" htmlFor={id} />
       <a href="/">
-        <img className="pictureItem" src={img} alt={alt} />
+        <img className="pictureItem" src={`${img}`} />
       </a>
       <div className="item_conteiner">
         {isTank ? (

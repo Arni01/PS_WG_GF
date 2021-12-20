@@ -15,7 +15,6 @@ const HeaderItem = (props) => {
           <Link to="/">
             <span>Create account</span>
           </Link>
-          )
         </>
       )}
     </li>

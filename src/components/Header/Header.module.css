@@ -28,7 +28,7 @@
 .title:before {
   display: flex;
   align-items: center;
-  content: url(../../../public/img/logo.png);
+  content: url('../../../public/img/logo.png');
   margin-right: 10px;
 }
 

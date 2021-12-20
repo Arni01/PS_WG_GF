@@ -4,6 +4,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { ESBuildMinifyPlugin } = require('esbuild-loader')
+// const CopyWebpackPlugin = require('copywe')
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
@@ -34,19 +35,18 @@ const filename = (ext) =>
 const cssLoaders = (isModule, loader) => {
   const loaders = [
     MiniCssExtractPlugin.loader,
-    // require.resolve('style-loader'),
 
     {
       loader: 'css-loader',
       options: {
         importLoaders: 1,
-        // esModule: true,
-        // modules: {
-        //   auto: true,
-        //   localIdentName: '[name]__[local]--[hash:base64:5]',
-        // },
+        url: true,
+        import: true,
+        // localIdentName: '[path][name]__[local]--[hash:base64:5]',
+        // localIdentContext: path.resolve(__dirname, 'src'),
       },
     },
+    'postcss-loader',
   ]
 
   if (loader) {
@@ -71,14 +71,15 @@ const plugins = () => {
     //     },
     //   ],
     // }),
-    new MiniCssExtractPlugin({
-      filename: `styles.css`,
-    }),
     new HTMLWebpackPlugin({
       // filename: 'index.html',
       template: path.resolve(__dirname, './src/index.html'),
       filename: './index.html',
     }),
+    new MiniCssExtractPlugin(),
+    //   {
+    //   filename: `styles.css`,
+    // }
   ]
 
   return base
@@ -94,9 +95,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     // filename: `bundle.js`,
-    filename: `js/${filename('js')}`,
-    assetModuleFilename: 'public/[hash][ext][query]',
-    // publicPath: '/static/',
+    filename: 'bundle.js',
+    // assetModuleFilename: 'public/[hash][ext][query]',
+    publicPath: './',
   },
   externals: {
     React: 'react',
@@ -116,42 +117,48 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'esbuild-loader',
+          loader: 'babel-loader',
           options: {
-            loader: 'jsx',
-            target: 'es2015',
-            // jsxFactory: 'React.createElement',
-            // jsxFragment: 'Fragment',
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: [
+              '@babel/plugin-transform-runtime',
+              '@babel/plugin-syntax-jsx',
+            ],
           },
+          // loader: 'esbuild-loader',
+          // options: {
+          //   loader: 'jsx',
+          //   target: 'es2015',
+          //   // jsxFactory: 'React.createElement',
+          //   // jsxFragment: 'Fragment',
+          // },
         },
       },
+
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              useRelativePath: false,
+              publicPath: './',
+            },
+          },
+        ],
+      },
       // {
-      //   test: /\.(?:js|jsx)$/,
-      //   exclude: /(node_modules)/,
-      //   use: {
-      //     loader: 'babel-loader',
-      //     options: {
-      //       presets: [
-      //         '@babel/preset-env',
-      //         ['@babel/preset-react', { runtime: 'automatic' }],
-      //       ],
-      //       plugins: [
-      //         '@babel/plugin-transform-runtime',
-      //         '@babel/plugin-syntax-jsx',
-      //       ],
-      //     },
+      //   test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+      //   type: 'asset/resource',
+      //   generator: {
+      //     filename: '[name][ext]',
       //   },
       // },
-      // public
-      {
-        test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
-        type: 'asset/resource',
-        // generator: {
-        //   filename: isDev
-        //     ? '[path][name][ext]'
-        //     : '[path][name][contenthash][ext]',
-        // },
-      },
       // {
       //   test: /\.(ttf|otf)$/,
       //   use: [
@@ -171,19 +178,19 @@ module.exports = {
       //   },
       // },
       // CSS, PostCSS, Sass
-      {
-        test: /\.css$/,
-        use: cssLoaders(),
-      },
+      // {
+      //   test: /\.css$/,
+      //   use: cssLoaders(),
+      // },
       // {
       //   test: /\.module.css$/,
       //   // include: /\.module\.css$/,
       //   use: cssLoaders(true),
       // },
-      {
-        test: /\.(s[ca]ss)$/,
-        use: cssLoaders(false, 'sass-loader'),
-      },
+      // {
+      //   test: /\.(s[ca]ss)$/,
+      //   use: cssLoaders(false, 'sass-loader'),
+      // },
       // {
       //   test: /\.html/,
       //   type: 'asset/resource',

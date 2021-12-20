@@ -12,7 +12,8 @@ body {
 .wrapper {
   max-width: 1920px;
   margin: 0 auto;
-  background-image: url(../public/img/bgimage.png);
+  /* background-image: url(../public/dist/bgimage.png); */
+  background-image: url(../dist//bgimage.png);
   background-position: top;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -65,7 +66,7 @@ h1 {
 h1:before {
   display: flex;
   align-items: center;
-  content: url(../public/img/logo.png);
+  content: url(./public/img/logo.png);
   margin-right: 10px;
 }
 
@@ -112,21 +113,21 @@ h1:before {
 
 @media (max-width: 740px) {
   .wish {
-    background: url(../public/img/adaptive/valentines-heart.png) no-repeat;
+    background: url(./public/img/adaptive/valentines-heart.png) no-repeat;
     padding-left: 16px;
   }
 }
 
 @media (max-width: 740px) {
   .cart {
-    background: url(../public/img/adaptive/cart.png) no-repeat;
+    background: url(./public/img/adaptive/cart.png) no-repeat;
     padding-left: 16px;
   }
 }
 
 @media (max-width: 740px) {
   .login {
-    background: url(../public/img/adaptive/ico.png) no-repeat;
+    background: url(./public/img/adaptive/ico.png) no-repeat;
     padding-left: 30px;
   }
 }
@@ -210,7 +211,7 @@ h1:before {
 }
 
 .logoWoT {
-  background: url(../public/img/LogoWoT.png);
+  background: url(./public/img/LogoWoT.png);
   background-repeat: no-repeat;
   margin-top: 5px;
   margin-left: -10px;
@@ -218,7 +219,7 @@ h1:before {
   width: 185px;
   height: 98px;
 }
-@media (max-width: 740px) {
+/* @media (max-width: 740px) {
   .logoWoT {
     background: url(../public/img/adaptive/Logo.png);
     background-repeat: no-repeat;
@@ -226,7 +227,7 @@ h1:before {
     left: 15px;
     margin: 0;
   }
-}
+} */
 
 .nav_menu_item a.active_itm {
   border-bottom: 3px solid white;
@@ -251,7 +252,7 @@ h1:before {
   display: block;
   width: 30px;
   height: 30px;
-  background: url(../public/img/heart.png);
+  background: url(./public/img/heart.png);
   background-size: 30px 30px;
   background-repeat: no-repeat;
   position: absolute;
@@ -269,7 +270,7 @@ h1:before {
 }
 
 .checkbox_input:checked + .checkbox_label::before {
-  background-image: url(../public/img/heartFull.png);
+  background-image: url(./public/img/heartFull.png);
 }
 
 .grid {
@@ -423,37 +424,37 @@ button.purchase {
   }
 }
 .description .ussr {
-  background: url('../public/img/flags/ussr.png') center/cover no-repeat;
+  background: url(./public/img/flags/ussr.png) center/cover no-repeat;
 }
 .description .sweden {
-  background: url('../public/img/flags/sweden.png') center/cover no-repeat;
+  background: url(./public/img/flags/sweden.png) center/cover no-repeat;
 }
 .description .chine {
-  background: url('../public/img/flags/chine.png') center/cover no-repeat;
+  background: url(./public/img/flags/chine.png) center/cover no-repeat;
 }
 .description .czech {
-  background: url('../public/img/flags/czech.png') center/cover no-repeat;
+  background: url(./public/img/flags/czech.png) center/cover no-repeat;
 }
 .description .france {
-  background: url('../public/img/flags/france.png') center/cover no-repeat;
+  background: url(./public/img/flags/france.png) center/cover no-repeat;
 }
 .description .germany {
-  background: url('../public/img/flags/germany.png') center/cover no-repeat;
+  background: url(./public/img/flags/germany.png) center/cover no-repeat;
 }
 .description .italy {
-  background: url('../public/img/flags/italy.png') center/cover no-repeat;
+  background: url(./public/img/flags/italy.png) center/cover no-repeat;
 }
 .description .japan {
-  background: url('../public/img/flags/japan.png') center/cover no-repeat;
+  background: url(./public/img/flags/japan.png) center/cover no-repeat;
 }
 .description .poland {
-  background: url('../public/img/flags/poland.png') center/cover no-repeat;
+  background: url(./public/img/flags/poland.png) center/cover no-repeat;
 }
 .description .uk {
-  background: url('../public/img/flags/uk.png') center/cover no-repeat;
+  background: url(./public/img/flags/uk.png) center/cover no-repeat;
 }
 .description .usa {
-  background: url('../public/img/flags/usa.png') center/cover no-repeat;
+  background: url(./public/img/flags/usa.png) center/cover no-repeat;
 }
 .description .type {
   height: 15px;
@@ -461,17 +462,17 @@ button.purchase {
   margin-right: 5px;
 }
 .description .light {
-  background: url('../public/img/type/light.png') center/cover no-repeat;
+  background: url(./public/img/type/light.png) center/cover no-repeat;
 }
 .description .medium {
-  background: url('../public/img/type/medium.png') center/cover no-repeat;
+  background: url(./public/img/type/medium.png) center/cover no-repeat;
 }
 .description .heavy {
-  background: url('../public/img/type/heavy.png') center/cover no-repeat;
+  background: url(./public/img/type/heavy.png) center/cover no-repeat;
 }
 .description .destroyers {
   height: 10px;
-  background: url('../public/img/type/destroyers.png') center/cover no-repeat;
+  background: url(./public/img/type/destroyers.png) center/cover no-repeat;
 }
 
 /*# sourceMappingURL=style.css.map */
