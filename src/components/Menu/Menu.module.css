@@ -1,0 +1,21 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 15px 0;
+  height: 122px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  background: url(../../../public/img/LogoWoT.png);
+  background-repeat: no-repeat;
+  margin-top: 5px;
+  margin-left: -10px;
+  position: absolute;
+  width: 185px;
+  height: 98px;
+}
+
+.nav {
+}

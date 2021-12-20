@@ -1,0 +1,17 @@
+/* .item {
+  margin-bottom: 55px;
+} */
+
+.item a {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: white;
+  opacity: 0.6;
+  transition: 0.3s screen;
+}
+
+.space {
+  margin: 0 5px 0 5px;
+  color: #656565;
+}
